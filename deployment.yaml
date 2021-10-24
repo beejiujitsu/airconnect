@@ -7,8 +7,7 @@ metadata:
   creationTimestamp: null
   generation: 1
   labels:
-    k8s-app: airconnect
-    location: lan
+    app: airconnect
   name: airconnect
   selfLink: /apis/extensions/v1beta1/namespaces/lan/deployments/airconnect
 spec:
@@ -17,8 +16,7 @@ spec:
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      k8s-app: airconnect
-      location: lan
+      app: airconnect
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -30,8 +28,7 @@ spec:
         description: LAN airconnect
       creationTimestamp: null
       labels:
-        k8s-app: airconnect
-        location: lan
+        app: airconnect
       name: airconnect
     spec:
       containers:
