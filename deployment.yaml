@@ -5,7 +5,6 @@ metadata:
     deployment.kubernetes.io/revision: '1'
     description: LAN airconnect
   creationTimestamp: null
-  generation: 1
   labels:
     app: airconnect
   name: airconnect
