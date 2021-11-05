@@ -37,7 +37,13 @@ spec:
         image: marvinmarvin/docker-k8s-airconnect
         imagePullPolicy: Always
         name: airconnect
-        resources: {}
+        resources:
+          requests:
+            cpu: "50m"
+            memory: "16Mi"
+          limits:
+            cpu: "100m"
+            memory: "32Mi"
         securityContext:
           privileged: true
           procMount: Default
