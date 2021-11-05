@@ -34,9 +34,9 @@ spec:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
            - labelSelector:
-             matchLabels:
-               app: airconnect
-               topologyKey: kubernetes.io/hostname
+               matchLabels:
+                 app: airconnect
+             topologyKey: kubernetes.io/hostname
       containers:
       - env:
         - name: tz
