@@ -11,14 +11,14 @@ metadata:
   selfLink: /apis/apps/v1/namespaces/airconnect/deployments/airconnect
 spec:
   progressDeadlineSeconds: 600
-  replicas: 2
+  replicas: 3
   revisionHistoryLimit: 10
   selector:
     matchLabels:
       app: airconnect
   strategy:
     rollingUpdate:
-      maxSurge: 1
+      maxSurge: 2
       maxUnavailable: 1
     type: RollingUpdate
   template:
