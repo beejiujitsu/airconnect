@@ -51,7 +51,6 @@ spec:
         terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
       hostNetwork: true
-      nodeName: allanon
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
