@@ -1,6 +1,6 @@
 # Docker Airconnect
 
-This is a dockerized version of AirConnect (https://github.com/philippe44/AirConnect) which bridges AirPlay with Sonos and the Google Cast protocol.
+This is a containerized, Kubernetes compatible version of [AirConnect](https://github.com/philippe44/AirConnect) that bridges AirPlay with Sonos and the Google Cast protocol.
 
 ## How to launch
 

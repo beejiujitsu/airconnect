@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    deployment.kubernetes.io/revision: '4'
+    deployment.kubernetes.io/revision: '1'
     description: LAN airconnect
   creationTimestamp: null
   labels:
@@ -11,15 +11,15 @@ metadata:
   selfLink: /apis/apps/v1/namespaces/airconnect/deployments/airconnect
 spec:
   progressDeadlineSeconds: 600
-  replicas: 1
+  replicas: 2
   revisionHistoryLimit: 10
   selector:
     matchLabels:
       app: airconnect
   strategy:
     rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
+      maxSurge: 2
+      maxUnavailable: 1
     type: RollingUpdate
   template:
     metadata:
@@ -30,6 +30,13 @@ spec:
         app: airconnect
       name: airconnect
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+           - labelSelector:
+               matchLabels:
+                 app: airconnect
+             topologyKey: kubernetes.io/hostname
       containers:
       - env:
         - name: tz
@@ -37,7 +44,13 @@ spec:
         image: marvinmarvin/docker-k8s-airconnect
         imagePullPolicy: Always
         name: airconnect
-        resources: {}
+        resources:
+          requests:
+            cpu: "50m"
+            memory: "16Mi"
+          limits:
+            cpu: "100m"
+            memory: "32Mi"
         securityContext:
           privileged: true
           procMount: Default
@@ -45,7 +58,6 @@ spec:
         terminationMessagePolicy: File
       dnsPolicy: ClusterFirst
       hostNetwork: true
-      nodeName: allanon
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
