@@ -40,7 +40,7 @@ spec:
       containers:
       - env:
         - name: tz
-          value: Europe/Berlin
+          value: America/New_York
         image: marvinmarvin/docker-k8s-airconnect
         imagePullPolicy: Always
         name: airconnect
