@@ -7,7 +7,6 @@ metadata:
   labels:
     app: airconnect
   name: airconnect
-  selfLink: /apis/apps/v1/namespaces/airconnect/deployments/airconnect
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
